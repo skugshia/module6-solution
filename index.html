@@ -1,0 +1,42 @@
+<!--
+  Name: Sukayna Kugshia
+  Date: 10/02/2019
+  Description: The index.html file contains modifications as well as linking the file to the app.js file 
+               through the declartion of the app module as well as the controller. 
+                                  
+                                  Assignment #6 
+-->
+
+<!doctype html>
+<html lang="en" >
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+
+<body ng-app="LunchCheck"> <!--<10/02/2019><skugshi1>Declare ng-app on body-->
+   <div class="container" ng-controller="LunchCheckController"> <!--<10/02/2019><skugshi1>Declare ng-controller on div-->
+     <h1>Lunch Checker</h1>
+          <!--<10/02/2019><skugshi1>Directives are denoted by the prefix ng-->
+         <div class="form-group">
+             <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch"            class="form-control" ng-model="lunchItems" ng-style="lunchMenuStyle">
+             <div ng-style="textboxComment">*Please note empty items are NOT considered towards the count!</div>
+         </div>
+          <!--<10/02/2019><skugshi1>ng-click Directive will go to the function and execute accordingly.-->
+         <div class="form-group" >
+             <button class="btn btn-default" ng-click="CheckTooMuch()">Check If Too Much</button>
+         </div>
+          <!--<10/02/2019><skugshi1>Will display the message after the CheckTooMuch() function has been executed.-->
+         <div class="form-group message">
+         <p ng-style="checkMessage">{{checkEntryMessage}}</p>
+         </div>
+   </div>
+
+</body>
+</html>
